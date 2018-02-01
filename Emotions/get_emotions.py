@@ -25,7 +25,6 @@ class Emotions(object):
 
     with open(self.filepath) as input_file:
       post = input_file.read()
-    print(post)
     words = post.lower().split(' ')
     words_no_punct = [''.join(ch for ch in token if not ch in string.punctuation) for token in words] 
 
@@ -69,4 +68,5 @@ class Emotions(object):
     df5.to_csv("Results/" + post_name + "_EMOTION_results.csv", sep=',')
     # df5 = df5.append(df5)
 
-Emotions("../posts/post_1.txt").get_emotions()
+for filename in os.listdir("../posts/"):
+  Emotions('../posts/%s' % filename).get_emotions()

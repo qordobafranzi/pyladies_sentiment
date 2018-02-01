@@ -135,9 +135,9 @@ class RevealWordsOfPosts(object):
         with open(self.filepath, 'rb') as input_file:
           alle = []
           file_content = input_file.read()
-
           new = LIWC_Index_Count()
-          count_whole_corpus = new.category_matches(file_content, ['Posemo', 'Negemo', 'Work'])
+
+          count_whole_corpus = new.category_matches(file_content, ['Posemo', 'Negemo', "Swear", "Anger", "Anx"])
           print 'Successfully parsed LIWC data' + str(datetime.datetime.now() - time)
 
           post_name = self.filepath.split('/')[-1][:-4]
